@@ -49,53 +49,6 @@ describe('Корзина товаров', () => {
 
     })
 
-    // describe('Проверка формы на функциональность', () => {
-    //     it("Поля формы заполнены корректно и при нажатии на кнопку Checkout ", async () => {
-    //         render(
-    //             <MemoryRouter initialEntries={[`/cart`]}>
-    //                     <Cart />
-    //             </MemoryRouter>,
-    //             {wrapper: Wrapper}
-    //         )
-    //
-    //         await new Promise(process.nextTick);
-    //
-    //         const nameInput = screen.getByLabelText<HTMLInputElement>('Name')
-    //         fireEvent.change(nameInput, {target: {value: 'Покупатель'}})
-    //
-    //         const phoneInput = screen.getByLabelText<HTMLInputElement>('Phone')
-    //         fireEvent.change(phoneInput, {target: {value: '89502345555'}})
-    //
-    //         const addressTextarea = screen.getByLabelText<HTMLTextAreaElement>('Address')
-    //         fireEvent.change(addressTextarea, {target: {value: 'address'}})
-    //
-    //         console.log(nameInput.value, phoneInput.value, addressTextarea.value)
-    //
-    //         fireEvent.click(screen.getByRole('button', {name: 'Checkout'}));
-    //
-    //         // const {getByRole, getAllByRole} = render(
-    //         //     <Cart />,
-    //         //     {wrapper: Wrapper}
-    //         // )
-    //         //
-    //         // // await new Promise(process.nextTick);
-    //         //
-    //         // console.log(getAllByRole('button'))
-    //         // // const [nameInput, phoneInput] = getAllByRole('input')
-    //         // // fireEvent.change(nameInput, {target: {value: 'Покупатель'}})
-    //         // // fireEvent.change(phoneInput, {target: {value: '89502345555'}})
-    //         // //
-    //         // // const addressTextarea = getByRole('textarea')
-    //         // // fireEvent.change(addressTextarea, {target: {value: 'address'}})
-    //         // //
-    //         // // fireEvent.click(screen.getByRole('button', {name: 'Checkout'}));
-    //         // //
-    //         // // await new Promise(process.nextTick)
-    //         //
-    //         expect(screen.getByRole('button', {name: 'Checkout', })).not.toBeInTheDocument()
-    //     });
-    // })
-
     it('В шапке рядом со ссылкой на корзину должно отображаться количество не повторяющихся товаров в ней', () => {
         const initState = {
             cart: {

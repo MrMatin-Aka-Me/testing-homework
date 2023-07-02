@@ -1,8 +1,4 @@
-let bug_id = '';
-
-if (process.env.BUG_ID !== undefined) {
-    bug_id = process.env.BUG_ID
-}
+const { bug_id } = require('./bugId');
 
 describe('Страницы главная, доставка и контакты имеют статическое содержимое', () => {
     it('home', async function({browser}) {
