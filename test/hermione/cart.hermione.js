@@ -3,7 +3,7 @@ const { bug_id } = require('./bugId');
 
 describe('Проверка корзины на функциональность', () => {
     it("Cодержимое корзины должно сохраняться между перезагрузками страницы;", async ({browser}) => {
-        const puppeteer = await browser.getPuppeteer();
+        const puppeteer = await browser.getPuppeteer();//bug_id=6
         const [page] = await puppeteer.pages();
 
         await page.goto('http://localhost:3000/hw/store/catalog/0' + (bug_id ? `?bug_id=${bug_id}` : ''));
