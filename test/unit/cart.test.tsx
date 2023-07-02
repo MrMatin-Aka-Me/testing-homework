@@ -17,9 +17,9 @@ import {Route} from "react-router";
 const basename = '/'
 const api = new MockedExampleApi(basename) as any;
 const cart = new CartApi();
-const mockedStore = initStore(api, cart);
+export const mockedStore = initStore(api, cart);
 
-const Wrapper = (props: {children: ReactNode}) => {
+export const Wrapper = (props: {children: ReactNode}) => {
     return (
         <BrowserRouter basename={basename}>
             <Provider store={mockedStore}>

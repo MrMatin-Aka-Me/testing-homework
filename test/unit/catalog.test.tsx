@@ -1,5 +1,4 @@
-// import {describe, expect, it} from '@jest/globals'
-import {render, screen} from '@testing-library/react'
+import { render, screen} from '@testing-library/react'
 import {Provider} from "react-redux";
 import React from "react";
 import { createStore } from 'redux';
@@ -7,17 +6,10 @@ import {Catalog} from "../../src/client/pages/Catalog";
 import {BrowserRouter, MemoryRouter} from 'react-router-dom';
 import '@testing-library/jest-dom/extend-expect';
 import {Application} from "../../src/client/Application";
-import axios from "axios";
-import {ProductShortInfo} from "../../src/common/types";
+import {bug_id} from "../hermione/bugId"
 import {ExampleStore} from "../../src/server/data";
 
 const basename = '/'
-
-let bug_id = '';
-
-if (process.env.BUG_ID !== undefined) {
-    bug_id = process.env.BUG_ID
-}
 
 describe('Каталог товаров', () => {
     it ('В каталоге должны отображаться товары, список которых приходит с сервера', ()=> {
@@ -44,6 +36,7 @@ describe('Каталог товаров', () => {
     })
 
     it ('Для каждого товара в каталоге отображается название, цена и ссылка на страницу с подробной информацией о товаре', async ()=> {
+        console.log(bug_id)
         const products = new ExampleStore().getAllProducts(Number(bug_id)); //bud_id=1
         const initState = {
             cart: {},
