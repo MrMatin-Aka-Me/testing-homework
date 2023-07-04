@@ -7,7 +7,7 @@ describe('Страницы главная, доставка и контакты 
 
         await page.goto('http://localhost:3000/hw/store' + (bug_id ? `?bug_id=${bug_id}` : ''));
         await browser.pause(1000);
-        await browser.assertView('home', 'body')
+        await browser.assertView('home', '.Home')
     });
 
     it('delivery', async function({browser}) {
@@ -16,7 +16,7 @@ describe('Страницы главная, доставка и контакты 
 
         await page.goto('http://localhost:3000/hw/store/delivery' + (bug_id ? `?bug_id=${bug_id}` : ''));
         await browser.pause(1000);
-        await browser.assertView('delivery', 'body')
+        await browser.assertView('delivery', '.Delivery')
     });
 
     it('contacts', async function({browser}) {
@@ -25,6 +25,6 @@ describe('Страницы главная, доставка и контакты 
 
         await page.goto('http://localhost:3000/hw/store/contacts' + (bug_id ? `?bug_id=${bug_id}` : ''));
         await browser.pause(1000);
-        await browser.assertView('contacts', 'body')
+        await browser.assertView('contacts', '.Contacts')
     });
 })
