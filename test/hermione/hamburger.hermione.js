@@ -1,10 +1,9 @@
 const {assert} = require("chai");
-const { bug_id } = require('./bugId');
 
 describe('Гамбургер', function () {
     it("на ширине меньше 576px навигационное меню должно скрываться за гамбургер", async ({browser}) => {
         await browser.setWindowSize(500, 1000);
-        await browser.url('/hw/store' + `?bug_id=${bug_id}`);
+        await browser.url('/hw/store');
 
         const page = await browser.$("nav");
         await page.waitForExist();
@@ -16,7 +15,7 @@ describe('Гамбургер', function () {
 
     it("при выборе элемента из меню гамбургера, меню должно закрываться", async ({browser}) => {
         await browser.setWindowSize(500, 1000);
-        await browser.url('/hw/store' + `?bug_id=${bug_id}`); //bug_id=4
+        await browser.url('/hw/store'); //bug_id=4
 
         const hamburger = await browser.$('.Application-Toggler')
         const menu = await browser.$('.Application-Menu')

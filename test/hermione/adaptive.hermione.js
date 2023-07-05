@@ -1,6 +1,3 @@
-const { bug_id } = require('./bugId');
-const {commerce} = require("faker");
-
 const generateMockedProducts = () => {
     const products = []
 
@@ -61,7 +58,7 @@ describe("Адаптивность", async function () {
             await page.setRequestInterception(true);
 
             page.on('request', onRequestHandler);
-            await page.goto('http://localhost:3000/hw/store/catalog/1' + (bug_id ? `?bug_id=${bug_id}` : ''));
+            await page.goto('http://localhost:3000/hw/store/catalog/1');
             await browser.assertView('product page 1100px width', '.Application')
         });
 
@@ -70,7 +67,7 @@ describe("Адаптивность", async function () {
             const [page] = await puppeteer.pages();
             await page.setViewport({width: 800, height: 1080});
 
-            await page.goto('http://localhost:3000/hw/store/catalog/1' + (bug_id ? `?bug_id=${bug_id}` : ''));
+            await page.goto('http://localhost:3000/hw/store/catalog/1');
             await browser.assertView('product page 800px width', '.Application')
         });
 
@@ -79,7 +76,7 @@ describe("Адаптивность", async function () {
             const [page] = await puppeteer.pages();
             await page.setViewport({width: 700, height: 1080});
 
-            await page.goto('http://localhost:3000/hw/store/catalog/1' + (bug_id ? `?bug_id=${bug_id}` : ''));
+            await page.goto('http://localhost:3000/hw/store/catalog/1');
             await browser.assertView('product page 700px width', '.Application')
         });
 
@@ -88,7 +85,7 @@ describe("Адаптивность", async function () {
             const [page] = await puppeteer.pages();
             await page.setViewport({width: 570, height: 1080});
 
-            await page.goto('http://localhost:3000/hw/store/catalog/1' + (bug_id ? `?bug_id=${bug_id}` : ''));
+            await page.goto('http://localhost:3000/hw/store/catalog/1');
             await browser.assertView('product page 570px width', '.Application')
         });
     });
@@ -103,7 +100,7 @@ describe("Адаптивность", async function () {
 
             page.on('request', onRequestHandler);
 
-            await page.goto('http://localhost:3000/hw/store/catalog/' + (bug_id ? `?bug_id=${bug_id}` : ''));
+            await page.goto('http://localhost:3000/hw/store/catalog/');
             await browser.assertView('product page 1100px width', '.Application', assertViewOpt)
         });
 
@@ -112,7 +109,7 @@ describe("Адаптивность", async function () {
             const [page] = await puppeteer.pages();
             await page.setViewport({width: 800, height: 6000});
 
-            await page.goto('http://localhost:3000/hw/store/catalog/' + (bug_id ? `?bug_id=${bug_id}` : ''));
+            await page.goto('http://localhost:3000/hw/store/catalog/');
             await browser.assertView('product page 800px width', '.Application', assertViewOpt)
         });
 
@@ -121,7 +118,7 @@ describe("Адаптивность", async function () {
             const [page] = await puppeteer.pages();
             await page.setViewport({width: 700, height: 6000});
 
-            await page.goto('http://localhost:3000/hw/store/catalog/' + (bug_id ? `?bug_id=${bug_id}` : ''));
+            await page.goto('http://localhost:3000/hw/store/catalog/');
             await browser.assertView('product page 700px width', '.Application', assertViewOpt)
         });
 
@@ -130,7 +127,7 @@ describe("Адаптивность", async function () {
             const [page] = await puppeteer.pages();
             await page.setViewport({width: 570, height: 15000});
 
-            await page.goto('http://localhost:3000/hw/store/catalog/' + (bug_id ? `?bug_id=${bug_id}` : ''));
+            await page.goto('http://localhost:3000/hw/store/catalog/');
             await browser.assertView('product page 570px width', '.Application', {screenshotDelay: 2000})
         });
     });
