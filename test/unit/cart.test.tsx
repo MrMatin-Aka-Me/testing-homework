@@ -1,4 +1,3 @@
-// import {describe, expect, it} from '@jest/globals'
 import {render, fireEvent, screen} from '@testing-library/react'
 import {Provider} from "react-redux";
 import React, {ReactNode} from "react";
@@ -31,7 +30,7 @@ export const Wrapper = (props: {children: ReactNode}) => {
 
 describe('Корзина товаров', () => {
     it('Товар добавляется в корзину при нажатии на кнопку Add to cart', async () => {
-        const id = 0 //bug_id=7
+        const id = 0
         render(
             <MemoryRouter initialEntries={[`/catalog/${id}`]}>
                 <Route path={'/catalog/:id'}>

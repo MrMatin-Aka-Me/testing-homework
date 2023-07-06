@@ -50,7 +50,7 @@ module.exports = {onRequestHandler}
 
 describe("Адаптивность", async function () {
     describe('Страница товара', function () {
-        it("вёрстка должна адаптироваться под ширину экрана 1100px", async ({browser}) => { //bug_id=9
+        it("вёрстка должна адаптироваться под ширину экрана 1100px", async ({browser}) => {
             const puppeteer = await browser.getPuppeteer();
             const [page] = await puppeteer.pages();
             await page.setViewport({width: 1100, height: 1080});
@@ -92,7 +92,7 @@ describe("Адаптивность", async function () {
 
     describe('Страница каталога', function () {
         const assertViewOpt = { screenshotDelay: 1000 }
-        it("вёрстка должна адаптироваться под ширину экрана 1100px", async ({browser}) => { //bug_id=9
+        it("вёрстка должна адаптироваться под ширину экрана 1100px", async ({browser}) => {
             const puppeteer = await browser.getPuppeteer();
             const [page] = await puppeteer.pages();
             await page.setViewport({width: 1100, height: 6000});

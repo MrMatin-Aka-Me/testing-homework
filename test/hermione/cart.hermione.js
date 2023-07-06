@@ -2,7 +2,7 @@ const { assert } = require('chai');
 
 describe('Проверка корзины на функциональность', () => {
     it("Cодержимое корзины должно сохраняться между перезагрузками страницы;", async ({browser}) => {
-        const puppeteer = await browser.getPuppeteer();//bug_id=6
+        const puppeteer = await browser.getPuppeteer();
         const [page] = await puppeteer.pages();
 
         await page.goto('http://localhost:3000/hw/store/catalog/0');
@@ -30,7 +30,7 @@ describe('Проверка корзины на функциональность'
     describe('Проверка формы на функциональность', () => {
         const waitForSelectorOptions = { timeout: 5000 }
         it("Поля формы должны валидировтаься корректно", async ({browser}) => {
-            const puppeteer = await browser.getPuppeteer(); //bug_id=10
+            const puppeteer = await browser.getPuppeteer();
             const [page] = await puppeteer.pages();
 
             await page.goto('http://localhost:3000/hw/store/cart');
@@ -68,7 +68,7 @@ describe('Проверка корзины на функциональность'
         });
 
         it("Поля формы заполнены корректно и при нажатии на кнопку Checkout страница меняется", async ({browser}) => {
-            const puppeteer = await browser.getPuppeteer(); //bug_id=5
+            const puppeteer = await browser.getPuppeteer();
             const [page] = await puppeteer.pages();
 
             await page.goto('http://localhost:3000/hw/store/cart');
@@ -106,7 +106,7 @@ describe('Проверка корзины на функциональность'
         });
 
         it("Поля формы заполнены корректно и при нажатии на кнопку Checkout появляется сообщение об успехе", async ({browser}) => {
-            const puppeteer = await browser.getPuppeteer(); //bug_id=8
+            const puppeteer = await browser.getPuppeteer();
             const [page] = await puppeteer.pages();
             await page.setViewport({ width: 1920, height: 1080 })
 

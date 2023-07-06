@@ -1,7 +1,7 @@
 const {assert} = require("chai");
 
 describe('Каталог ', async () => {
-    it('в карточках должна быть краткая информация о товаре', async function({browser}) {//bug_id=1
+    it('в карточках должна быть краткая информация о товаре', async function({browser}) {
         const puppeteer = await browser.getPuppeteer();
         const [page] = await puppeteer.pages()
 
@@ -20,7 +20,7 @@ describe('Каталог ', async () => {
         })
     });
 
-    it("Сервер должен возвращать товар с id из запроса", async ({browser}) => { //bug_id=3
+    it("Сервер должен возвращать товар с id из запроса", async ({browser}) => {
         const puppeteer = await browser.getPuppeteer();
         const [page] = await puppeteer.pages();
         const res = (await page.goto('http://localhost:3000/hw/store/api/products/2'));

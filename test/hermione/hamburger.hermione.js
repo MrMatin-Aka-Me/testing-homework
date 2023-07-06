@@ -15,7 +15,7 @@ describe('Гамбургер', function () {
 
     it("при выборе элемента из меню гамбургера, меню должно закрываться", async ({browser}) => {
         await browser.setWindowSize(500, 1000);
-        await browser.url('/hw/store'); //bug_id=4
+        await browser.url('/hw/store');
 
         const hamburger = await browser.$('.Application-Toggler')
         const menu = await browser.$('.Application-Menu')

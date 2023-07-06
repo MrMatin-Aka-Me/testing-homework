@@ -1,1 +1,0 @@
-module.exports = {bug_id: process.env.BUG_ID || 0}
