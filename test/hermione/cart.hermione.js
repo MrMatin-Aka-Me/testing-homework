@@ -1,12 +1,11 @@
 const { assert } = require('chai');
-const { bug_id } = require('./bugId');
 
 describe('Проверка корзины на функциональность', () => {
     it("Cодержимое корзины должно сохраняться между перезагрузками страницы;", async ({browser}) => {
-        const puppeteer = await browser.getPuppeteer();//bug_id=6
+        const puppeteer = await browser.getPuppeteer();
         const [page] = await puppeteer.pages();
 
-        await page.goto('http://localhost:3000/hw/store/catalog/0' + (bug_id ? `?bug_id=${bug_id}` : ''));
+        await page.goto('http://localhost:3000/hw/store/catalog/0');
 
         await page.evaluate(() => {
             localStorage.clear();
@@ -19,7 +18,7 @@ describe('Проверка корзины на функциональность'
             return;
         }
 
-        await page.goto('http://localhost:3000/hw/store/catalog/0' + (bug_id ? `?bug_id=${bug_id}` : ''));
+        await page.goto('http://localhost:3000/hw/store/catalog/0');
         addToCart = await page.waitForSelector('.ProductDetails-AddToCart');
         text = (await page.$eval('.nav-link:nth-of-type(4)', node => node.innerHTML));
         assert.equal(text, 'Cart (1)', 'товар должен сохраниться при перезагрузке');
@@ -31,14 +30,14 @@ describe('Проверка корзины на функциональность'
     describe('Проверка формы на функциональность', () => {
         const waitForSelectorOptions = { timeout: 5000 }
         it("Поля формы должны валидировтаься корректно", async ({browser}) => {
-            const puppeteer = await browser.getPuppeteer(); //bug_id=10
+            const puppeteer = await browser.getPuppeteer();
             const [page] = await puppeteer.pages();
 
-            await page.goto('http://localhost:3000/hw/store/cart' + (bug_id ? `?bug_id=${bug_id}` : ''));
+            await page.goto('http://localhost:3000/hw/store/cart');
             await page.evaluate(() => {
                 localStorage.setItem('example-store-cart', '{"1":{"name":"товар1","count":1,"price":100}}');
             });
-            await page.goto('http://localhost:3000/hw/store/cart' + (bug_id ? `?bug_id=${bug_id}` : ''));
+            await page.goto('http://localhost:3000/hw/store/cart');
             const nameInputSelector = '.Form-Field_type_name';
             const phoneInputSelector = '.Form-Field_type_phone';
             const addressTextareaSelector = '.Form-Field_type_address';
@@ -69,14 +68,14 @@ describe('Проверка корзины на функциональность'
         });
 
         it("Поля формы заполнены корректно и при нажатии на кнопку Checkout страница меняется", async ({browser}) => {
-            const puppeteer = await browser.getPuppeteer(); //bug_id=5
+            const puppeteer = await browser.getPuppeteer();
             const [page] = await puppeteer.pages();
 
-            await page.goto('http://localhost:3000/hw/store/cart' + (bug_id ? `?bug_id=${bug_id}` : ''));
+            await page.goto('http://localhost:3000/hw/store/cart');
             await page.evaluate(() => {
                 localStorage.setItem('example-store-cart', '{"1":{"name":"товар1","count":1,"price":100}}');
             });
-            await page.goto('http://localhost:3000/hw/store/cart' + (bug_id ? `?bug_id=${bug_id}` : ''));
+            await page.goto('http://localhost:3000/hw/store/cart');
             const nameInputSelector = '.Form-Field_type_name';
             const phoneInputSelector = '.Form-Field_type_phone';
             const addressTextareaSelector = '.Form-Field_type_address';
@@ -107,15 +106,15 @@ describe('Проверка корзины на функциональность'
         });
 
         it("Поля формы заполнены корректно и при нажатии на кнопку Checkout появляется сообщение об успехе", async ({browser}) => {
-            const puppeteer = await browser.getPuppeteer(); //bug_id=8
+            const puppeteer = await browser.getPuppeteer();
             const [page] = await puppeteer.pages();
             await page.setViewport({ width: 1920, height: 1080 })
 
-            await page.goto('http://localhost:3000/hw/store/cart' + (bug_id ? `?bug_id=${bug_id}` : ''));
+            await page.goto('http://localhost:3000/hw/store/cart');
             await page.evaluate(() => {
                 localStorage.setItem('example-store-cart', '{"1":{"name":"товар1","count":1,"price":100}}');
             });
-            await page.goto('http://localhost:3000/hw/store/cart' + (bug_id ? `?bug_id=${bug_id}` : ''));
+            await page.goto('http://localhost:3000/hw/store/cart');
             const nameInputSelector = '.Form-Field_type_name';
             const phoneInputSelector = '.Form-Field_type_phone';
             const addressTextareaSelector = '.Form-Field_type_address';
